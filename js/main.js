@@ -1,5 +1,3 @@
-// 使用原生JavaScript实现飞机射击游戏
-
 var _doc = document;
 
 // 通用函数，获取dom节点
@@ -12,9 +10,6 @@ function gId( n ){
 gId( 'wrapId' ).onmousemove = function( e ){
 	var eL = e.pageX - gId( 'wrapId' ).offsetLeft -20;   
 	var eT = e.pageY - gId( 'wrapId' ).offsetTop - 20;
-	/*e.pageX,e.pageY,它是鼠标相对于整个网页的XY坐标
-	.offsetLeft，获得html标签相对于整个浏览器左边的距离
-	.offsetTop，获得html标签相对于整个浏览器顶边的距离*/
 
 	gId( 'airplaneId' ).style.left = eL + 'px' ;
 	gId( 'airplaneId' ).style.top = eT + 'px';
@@ -27,8 +22,6 @@ function targetListObj(){
 		var _obj = {};
 		_obj._x = Math.floor(Math.random() * 10); 
 		_obj._y = Math.floor(Math.random() * 10);
-		//Math.random()，随机产生0-1之间的数字
-		//Math.floor( x ),返回一个小于，等于x的最大整数  假如x=8.9，那么返回的数字为8
 		_arrs.push( _obj );
 	}
 	console.log( _arrs );
@@ -49,8 +42,6 @@ function createTargetFn( _arrs ){
 
 	//获得所有的li标签
 	var _lis = gId( 'wrapId' ).querySelectorAll('li');
-	//.querySelectorAll('li'),获得dom节点里面的所有li标签，这属于批量查询
-	// console.log(_lis);
 
 	//目标向下移动
 	var n = 0; //计数器
@@ -72,7 +63,7 @@ function createBulletFn( e ){
 	var _bullet = _doc.createElement('div');
 	_bullet.style.left = e.pageX - gId( 'wrapId' ).offsetLeft + 'px';
 	_bullet.style.top = e.pageY - gId( 'wrapId' ).offsetTop + 'px';
-	_bullet.setAttribute('class','bulletDiv'); //设置样式名
+	_bullet.setAttribute('class','bulletDiv'); 
 
 	gId( 'wrapId' ).appendChild( _bullet );
 
@@ -114,7 +105,7 @@ function createBulletFn( e ){
 		//子弹未击中，清除
 		if ( n <= 0 ) {
 			clearInterval( _s );
-			gId( 'wrapId' ).removeChild( _bullet ); //.removeChild（）删除dom节点
+			gId( 'wrapId' ).removeChild( _bullet ); 
 		}
 	},10);
 }
