@@ -6,7 +6,6 @@ function gId( n ){
 }
 
 // 飞机移动，
-//在.wrap这个容器里移动，使用onmousemove方法
 gId( 'wrapId' ).onmousemove = function( e ){
 	var eL = e.pageX - gId( 'wrapId' ).offsetLeft -20;   
 	var eT = e.pageY - gId( 'wrapId' ).offsetTop - 20;
